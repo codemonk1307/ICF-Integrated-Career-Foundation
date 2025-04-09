@@ -12,15 +12,6 @@
     </script>
   <link rel="icon" href="images/Integrated career foundation.png">
   <style>
-    .lazy-load {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 0.3s ease-in-out;
-    }
-    .lazy-load.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
     .container .card .h-100 img {
       height: 240px;
     }
@@ -102,7 +93,7 @@
 
 
   <!-- Courses Section -->
-  <section id="courses" class="py-5 bg-light lazy-load">
+  <section id="courses" class="py-5 bg-light">
     <div class="container">
       <h2 class="text-center mb-4">Our Courses On Computer Accounting (CCA)</h2>
     </div>
@@ -373,25 +364,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
   <script>
     $("#year").text(new Date().getFullYear());
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const sections = document.querySelectorAll('section, div, footer, article, aside, main, figure, img, video, iframe');
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, {
-        threshold: 0.1
-      });
-
-      sections.forEach(section => {
-        section.classList.add('lazy-load');
-        observer.observe(section);
-      });
-    });
   </script>
 </body>
 

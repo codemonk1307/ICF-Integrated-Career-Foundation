@@ -46,7 +46,37 @@ $(document).ready(function() {
 
 
 
+.lazy-load {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.3s ease-in-out;
+    }
+    .lazy-load.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
+
+
+Working Version Method
+document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('section, div, footer, article, aside, main, figure, img, video, iframe');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      sections.forEach(section => {
+        section.classList.add('lazy-load');
+        observer.observe(section);
+      });
+    });
 
 
 
