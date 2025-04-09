@@ -1,0 +1,105 @@
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('section');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    sections.forEach(section => {
+        section.classList.add('lazy-load');
+        observer.observe(section);
+    });
+});
+
+
+$(document).ready(function() {
+    // Assign 'lazy-load' class to all major HTML elements
+    $('div, section, header, footer, article, aside, main, nav, figure, img, video, iframe').addClass('lazy-load');
+
+    // Create Intersection Observer for lazy-loading effect
+    let observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                $(entry.target).addClass('visible'); // Add 'visible' class when in view
+                observer.unobserve(entry.target);   // Stop observing once loaded
+            }
+        });
+    }, {
+        threshold: 0.1 // Trigger when 10% of the element is visible
+    });
+
+    // Observe all elements with the 'lazy-load' class
+    $('.lazy-load').each(function() {
+        observer.observe(this);
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+    <h2 class="text-center mb-4">Our Course on Computer Accounting (CCA) Courses</h2>
+    <div class="row">
+        <!-- Basic Course Card -->
+        <div class="col-lg-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="card-title">CCA - Basic</h3>
+                    <p class="card-text mb-0">Duration: 6 Months</p>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Basic Accounting</li>
+                        <li class="list-group-item">Ms Office</li>
+                        <li class="list-group-item">Tally Prime</li>
+                        <li class="list-group-item">Goods & Services Tax</li>
+                        <li class="list-group-item">TDS</li>
+                        <li class="list-group-item">Business Communication</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Advanced Course Card -->
+        <div class="col-lg-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="card-title">CCA - Advanced</h3>
+                    <p class="card-text mb-0">Duration: 12 Months</p>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Basic Accounting</li>
+                        <li class="list-group-item">Ms Office</li>
+                        <li class="list-group-item">Tally Prime</li>
+                        <li class="list-group-item">Goods & Services Tax</li>
+                        <li class="list-group-item">Direct Tax (Including TDS)</li>
+                        <li class="list-group-item">Business Communication</li>
+                        <li class="list-group-item">Busy Accounting Software</li>
+                        <li class="list-group-item">SAP (FICO) - S4/HANA</li>
+                        <li class="list-group-item">Power BI</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
