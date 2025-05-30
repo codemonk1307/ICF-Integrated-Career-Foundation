@@ -24,6 +24,18 @@
       height: 100%;
       width: 100%;
     }
+    .footer-bottom {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      gap: 5px;
+    }
+    @media (min-width: 768px) {
+      .footer-bottom {
+        flex-direction: row;
+      }
+    }
     @media (max-width: 768px) {
       .card-img-container {
         max-height: 150px;
@@ -354,10 +366,16 @@
         </div>
       </div>
       <div class="row mt-3">
-        <div class="col-12 text-center">
-          <p class="mb-0">Copyright &copy; <span id="year"></span> ICF | All rights reserved</p>
+        <div class="col-12">
+          <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <p class="mb-1 mb-md-0">© <span id="year">2025</span> ICF | All rights reserved</p>
+            <p class="mb-0">
+              Website Architecture - 
+              <a target="_blank" style="color: white;" href="https://www.linkedin.com/in/sachin-mishra-7508401b1/">Sachin Mishra</a>
+            </p>
+          </div>
         </div>
-      </div>
+      </div>      
     </div>
   </footer>
 
